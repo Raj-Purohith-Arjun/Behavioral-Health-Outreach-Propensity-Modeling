@@ -9,6 +9,7 @@ from sklearn.model_selection import train_test_split
 from .data import DataSpec, build_feature_matrix, build_synthetic_population
 from .metrics import EvaluationSummary, compute_kpis, estimate_incremental_lift, evaluate_classifier
 from .model import ModelConfig, fit_propensity_model
+from .report import write_visual_report
 
 
 def run_training_pipeline(config_path: str, output_dir: str) -> EvaluationSummary:
@@ -82,4 +83,5 @@ def run_training_pipeline(config_path: str, output_dir: str) -> EvaluationSummar
         }
     )
     summary_table.to_csv(output / "metrics.csv", index=False)
+    write_visual_report(str(output), summary, eval_frame, top_n=cfg["train"]["top_n"])
     return summary

@@ -13,3 +13,12 @@ def test_pipeline_metrics_ranges(tmp_path):
     assert 0.5 <= summary.roc_auc <= 1.0
     assert 0.3 <= summary.pr_auc <= 1.0
     assert summary.ci_low <= summary.incremental_lift <= summary.ci_high
+
+
+def test_pipeline_generates_visual_report(tmp_path):
+    run_training_pipeline("configs/default.yaml", str(tmp_path))
+    report = tmp_path / "report.html"
+    deciles = tmp_path / "decile_metrics.csv"
+    assert report.exists()
+    assert deciles.exists()
+    assert "Outreach Prioritization Comparison" in report.read_text(encoding="utf-8")

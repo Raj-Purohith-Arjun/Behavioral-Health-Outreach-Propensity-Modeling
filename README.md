@@ -35,6 +35,15 @@ pip install -e .[dev]
 Outputs are written to `artifacts/`:
 - `metrics.csv`
 - `scored_population.csv`
+- `decile_metrics.csv`
+- `report.html` (stakeholder visual summary)
+
+## Visual deliverable
+Open `artifacts/report.html` in a browser to review:
+- model quality cards (ROC AUC, PR AUC)
+- business KPI cards (engagement lift, low-value outreach reduction)
+- incremental lift with 95% confidence interval
+- decile-level engagement performance table with visual bars
 
 ## KPI definitions
 - **Engagement Lift %**: uplift in engagement rate from model-ranked outreach versus random baseline at fixed outreach capacity.
