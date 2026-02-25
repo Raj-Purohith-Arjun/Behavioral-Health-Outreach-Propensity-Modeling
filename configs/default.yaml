@@ -1,0 +1,17 @@
+seed: 42
+train:
+  rows: 15000
+  test_size: 0.25
+  top_n: 3000
+model:
+  n_estimators: 300
+  learning_rate: 0.06
+  max_depth: 5
+  subsample: 0.9
+  colsample_bytree: 0.9
+  reg_lambda: 1.0
+  min_child_weight: 2
+  random_state: 42
+ab_test:
+  alpha: 0.05
+  bootstrap_iterations: 1200
